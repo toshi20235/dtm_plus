@@ -14,9 +14,9 @@ Rails.application.routes.draw do
      get '/' => "homes#top"
   end
   
-  namespace :public do
+  scope module: :public do
     
-    root to: "homes#top"
+    # root to: "homes#top"
     
     # resources :posts do  #postsコントローラへのルーティング  
     #   resources :comments, only: [:create]  #commentsコントローラへのルーティング

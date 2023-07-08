@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_one_attached :image
-  belongs_to :album
+  
   has_many :music, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :comments
