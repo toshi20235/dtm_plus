@@ -1,2 +1,30 @@
-<h1>Public::Musics#new</h1>
-<p>Find me in app/views/public/musics/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <%= form_with model: Music.new do |f| %>
+        <div>
+          <%= f.label :音源をアップロード %><br />
+          <%= f.file_field :audio %>
+        </div>
+        <div>
+          <%= f.label :タイトル %><br />
+          <%= f.text_field :name %>
+        </div>
+        <div>
+          <%= f.label :説明 %><br />
+          <%= f.text_field :explanation %>
+        </div>
+        <div>
+          <%= f.label :楽曲の画像 %><br />
+          <%= f.file_field :image, accept: "image/*" %>
+        </div>
+        <div>
+          <%= f.submit '投稿する！' %>
+        </div>
+      　<% end %>
+      　</div>
+      </div>
+    </div>
+  </div>
+</div>
