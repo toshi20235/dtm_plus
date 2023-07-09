@@ -1,2 +1,11 @@
-<h1>Public::Musics#index</h1>
-<p>Find me in app/views/public/musics/index.html.erb</p>
+<div class="container">
+  <% @musics.each do |music| %>
+  <div>
+    <%= image_tag music.image, size: "350x350" %>
+  </div>
+  <div>
+     <p>コメント</p>
+  <span><%= music.explanation %></span>
+  <% end %>
+  </div>
+</div>
