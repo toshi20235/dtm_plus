@@ -1,2 +1,30 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+
+ <div class="container col-xxl-8 px-4 py-5">
+    <%= link_to albums_path do %>
+    <img src="/assets/logo.jpg" width="20%"  height="20%", class="rounded-circle">
+    <% end %>
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <!--<div class="col-10 col-sm-8 col-lg-6">-->
+      <!--  <img src="../images/bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrapのテーマ" width="700" height="500" loading="lazy">-->
+      <!--</div>-->
+      <div class="col-lg-8">
+       <div class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+        <label>ユーザーネーム　　|　　<%= @user.user_name %></label>
+       </div>
+      <div class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+       <label>フォロー　　　　　|</label>
+      </div>
+      <div class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+        <label>フォロワー　　　　|  </label>
+      </div>
+      <div>
+      <div>
+       <%= link_to "編集", edit_user_path, class:"btn btn-outline-success"%>
+      </div>
+      <div class= "py-5">
+       <%= link_to "新しい曲を投稿する！", new_music_path, class:"btn btn-info"%>
+      </div>
+      </div>
+    </div>
+  </div>
+  </div>
