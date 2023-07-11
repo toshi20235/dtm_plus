@@ -1,10 +1,11 @@
 
-<div class="px-4 py-5 my-5 text-center bg-primary-subtle text-white">
+<div class="px-4 py-5 my-5">
    <% @musics.each do |music| %>
     <%= link_to music_path(music.id) do %>
     <%= image_tag music.image, size: "200x200", class: "rounded mx-auto d-block" %>
     <% end %>
-    <h3 class="display-5 fw-bold text-body-emphasis">コメント</h3>
+    <h3 class="text-center"><strong><%= music.name %></strong></h3>
+    <div class="col-lg-6 mx-auto">コメント</div>
     <div class="col-lg-6 mx-auto alert alert-dark">
       <p class="lead mb-4"><%= music.explanation %></p>
     </div>

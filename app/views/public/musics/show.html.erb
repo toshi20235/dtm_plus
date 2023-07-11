@@ -1,9 +1,17 @@
 <div class="container">
    <div class="row">
-     <div>
-       <%= image_tag user.get_image(100,100) %>
-       <%= user.user_name %>
+     <div class="m-5">
+       <%= image_tag @music.user.image, size: "100x100" %>
+       <div><%= @music.user.user_name %></div>
      </div>
-     <div>
-       <%= audio_tag t.audio_url, :controls => true if t.audio? %>
+      </div>
      </div>
+      <div class="text-center">
+        <%= form_with model: @music do |f| %>
+        <div><h4><strong><%= @music.name %></strong></h4></div>
+        <%= image_tag @music.image ,size: "300x300"%>
+        <div>
+          <%= audio_tag f.object.audio_url, controls: true if f.object.audio? %>
+        </div>
+       <% end %>
+      </div>

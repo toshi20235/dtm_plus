@@ -1,13 +1,14 @@
 
- <div class="container col-xxl-8 px-4 py-5">
+ <div class="container">
+  <div class="mt-5">
     <%= link_to albums_path do %>
     <img src="/assets/logo.jpg" width="20%"  height="20%", class="rounded-circle">
     <% end %>
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-      <!--<div class="col-10 col-sm-8 col-lg-6">-->
-      <!--  <img src="../images/bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrapのテーマ" width="700" height="500" loading="lazy">-->
-      <!--</div>-->
-      <div class="col-lg-8">
+   </div>
+    <div class="row">
+     <div class="col-4"></div>
+      <div class="col-4">
+       <%= image_tag @user.image , size: "150x150", class: "rounded mx-auto mb-2"%>
        <div class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
         <label>ユーザーネーム　　|　　<%= @user.user_name %></label>
        </div>
@@ -17,14 +18,26 @@
       <div class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
         <label>フォロワー　　　　|  </label>
       </div>
-      <div>
+      <!--<div>-->
       <div>
        <%= link_to "編集", edit_user_path, class:"btn btn-outline-success"%>
       </div>
       <div class= "py-5">
        <%= link_to "新しい曲を投稿する！", new_music_path, class:"btn btn-info"%>
       </div>
-      </div>
+      <!--</div>-->
     </div>
+     <div class="col-4  display-6 pb-3">
+       <h3 class="text-center">あなたの楽曲♩</h3>
+       <% @musics.each do |music| %>
+       <%= link_to music_path(music.id) do %>
+       <%= image_tag music.image, size: "250x250", class: "rounded mx-auto d-block" %>
+       <% end %>
+       <div class="p-2">
+       <h5 class="text-center"><%= music.name %></h5>
+       <div class="pl-5"><%= link_to "削除", music_path(music.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger" %></div>
+       </div>
+       <% end %>
+     </div>
   </div>
   </div>

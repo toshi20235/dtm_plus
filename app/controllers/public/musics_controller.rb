@@ -11,6 +11,8 @@ class Public::MusicsController < ApplicationController
   end
 
   def show
+    @music = Music.find(params[:id])
+    
   end
 
   def create
@@ -21,6 +23,9 @@ class Public::MusicsController < ApplicationController
   end
 
   def destroy
+    music = Music.find(params[:id])
+    music.destroy
+    redirect_to users_my_page_path
   end
   
   private
