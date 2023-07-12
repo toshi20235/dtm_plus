@@ -20,11 +20,11 @@ class Public::MusicsController < ApplicationController
   def create
     music = Music.new(music_params)
     music.user_id = current_user.id
-    music.save!
+    music.save
     # redirect_to users_my_page_path
     
     @post = current_user.music.new(music_params)
-    if @post.save!
+    if @post.save
       redirect_to users_my_page_path
     else
       render :new
