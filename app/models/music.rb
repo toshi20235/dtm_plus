@@ -9,7 +9,7 @@ class Music < ApplicationRecord
    favorites.where(user_id: user.id).exists?
   end
   
-  belongs_to :albums
+  # belongs_to :albums
 
   def albumed_by?(user)
     albums.where(user_id: user).exists?

@@ -20,16 +20,14 @@ class Public::MusicsController < ApplicationController
   def create
     music = Music.new(music_params)
     music.user_id = current_user.id
-    music.save
-    redirect_to users_my_page_path
+    music.save!
+    # redirect_to users_my_page_path
     
     @post = current_user.music.new(music_params)
-    if @post.save
-      redirect_back(fallback_location: root_path)
-      
+    if @post.save!
+      redirect_to users_my_page_path
     else
-      redirect_back(fallback_location: root_path)
-      return
+      render :new
     end
   end
 
