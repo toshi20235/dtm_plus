@@ -10,6 +10,6 @@ class Public::CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:comment_content, :post_id)  #formにてpost_idパラメータを送信して、コメントへpost_idを格納するようにする必要がある。
+    params.require(:comment).permit(:comment_content, :music_id)  #formにてpost_idパラメータを送信して、コメントへpost_idを格納するようにする必要がある。
   end
 end

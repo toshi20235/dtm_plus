@@ -23,8 +23,9 @@ class Public::MusicsController < ApplicationController
     music.user_id = current_user.id
     music.save
     redirect_to users_my_page_path
+    buybug
     @posts = current_user.musics.new(music_params)
-    if @posts.save
+    if @posts.save!
       redirect_back(fallback_location: root_path)  #コメント送信後は、一つ前のページへリダイレクトさせる。
     else
       redirect_back(fallback_location: root_path)  #同上
