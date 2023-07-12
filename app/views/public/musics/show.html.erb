@@ -7,9 +7,9 @@
    <div class="container">
      <div class="row">
        <div class="col-4">
-         <%= form_with(model:[@post, @comment], method: :post) do |f| %>
+         <%= form_with(model:[@music, @comment], method: :post) do |f| %>
          <%= f.text_area :comment_content , class: "form-control text-center" %>
-         <%= f.hidden_field :music_id, value: @post.id %>
+         <%= f.hidden_field :music_id, value: @music.id %>
          <h4 class="pt-3"><%= f.submit"コメントをする", class: "btn btn-success" %></h4>
          <% end %>
          <% if @music.favorited?(current_user) %>

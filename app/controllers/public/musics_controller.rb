@@ -12,9 +12,8 @@ class Public::MusicsController < ApplicationController
 
   def show
     @music = Music.find(params[:id])
-    @post = Music.find(params[:id])
-    @comments = @post.comments  #投稿詳細に関連付けてあるコメントを全取得
-    @comment = current_user.comments.new  #投稿詳細画面でコメントの投稿を行うので、formのパラメータ用にCommentオブジェクトを取得
+    @comments = @music.comments
+    @comment = current_user.comments.new
   end
   
 
@@ -23,12 +22,14 @@ class Public::MusicsController < ApplicationController
     music.user_id = current_user.id
     music.save
     redirect_to users_my_page_path
-    buybug
-    @posts = current_user.musics.new(music_params)
-    if @posts.save!
-      redirect_back(fallback_location: root_path)  #コメント送信後は、一つ前のページへリダイレクトさせる。
+    
+    @post = current_user.music.new(music_params)
+    if @post.save
+      redirect_back(fallback_location: root_path)
+      
     else
-      redirect_back(fallback_location: root_path)  #同上
+      redirect_back(fallback_location: root_path)
+      return
     end
   end
 
