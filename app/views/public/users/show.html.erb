@@ -17,14 +17,25 @@
         <label>ユーザーネーム　　|　　<%= @user.user_name %></label>
        </div>
       <div class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
-       <label>フォロー　　　　　|</label>
+       <label>フォロー　　　　　|　　<%= @user.followings.count %></label>
       </div>
       <div class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
-        <label>フォロワー　　　　|  </label>
+        <label>フォロワー　　　　|　　<%= @user.followers.count %></label>
       </div>
       <!--<div>-->
       <div>
+       <% if @user == current_user %>
        <%= link_to "編集", edit_user_path, class:"btn btn-outline-success"%>
+       <% end %>
+       
+       
+       <% if @user != current_user %>
+        <% if current_user.following?(@user) %>
+          <%= link_to "フォロー外す", user_relationships_path(@user.id), method: :delete %>
+        <% else %>
+          <%= link_to "フォローする", user_relationships_path(@user.id), method: :post %>
+        <% end %>
+       <% end %>
       </div>
       <div class= "py-5">
        <%= link_to "新しい曲を投稿する！", new_music_path, class:"btn btn-info"%>

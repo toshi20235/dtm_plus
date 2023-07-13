@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
   
+    devise_scope :user do
+    post 'users/guest_sign_in', to: 'public/sessions#new_guest'
+    end
+     
   # root to: 'homes#top'
   
   namespace :admin do
@@ -48,4 +52,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root to: "public/homes#top"
-end
+ end
+

@@ -21,14 +21,7 @@ class Public::MusicsController < ApplicationController
     music = Music.new(music_params)
     music.user_id = current_user.id
     music.save
-    # redirect_to users_my_page_path
-    
-    @post = current_user.music.new(music_params)
-    if @post.save
-      redirect_to users_my_page_path
-    else
-      render :new
-    end
+    redirect_to users_my_page_path
   end
 
   def destroy

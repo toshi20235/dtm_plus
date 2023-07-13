@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
   has_many :favorites, dependent: :destroy
   has_many :albums, dependent: :destroy
-end
+
 def follow(user_id)
   relationships.create(followed_id: user_id)
 end
@@ -25,4 +25,25 @@ end
 
 def following?(user)
   followings.include?(user)
+end
+
+def self.guest
+    find_or_create_by!(email: 'guest@example.com',user_name: 'no name') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+    end
+end
+
+def follow(user_id)
+  relationships.create(followed_id: user_id)
+end
+
+def unfollow(user_id)
+  relationships.find_by(followed_id: user_id).destroy
+end
+
+def following?(user)
+  followings.include?(user)
+end
+
 end
