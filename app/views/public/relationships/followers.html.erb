@@ -1,2 +1,18 @@
-<h1>Public::Relationships#followers</h1>
-<p>Find me in app/views/public/relationships/followers.html.erb</p>
+<% if @users.exists? %>
+  <% @users.each do |user| %>
+    <table>
+      <thead>
+        <tr>
+          <th>name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= user.user_name %></td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+<% else %>
+  <p>ユーザーはいません</p>
+<% end %>

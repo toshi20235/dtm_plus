@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
   def show
-    @user = current_user
+    @user = User.find(params[:id])
     @musics = @user.music
   end
 
@@ -11,7 +11,7 @@ class Public::UsersController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params)
-    redirect_to users_my_page_path(@users)
+    redirect_to user_path(@user)
   end
 
   def withdraw

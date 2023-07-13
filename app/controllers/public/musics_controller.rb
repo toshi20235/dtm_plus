@@ -21,13 +21,13 @@ class Public::MusicsController < ApplicationController
     music = Music.new(music_params)
     music.user_id = current_user.id
     music.save
-    redirect_to users_my_page_path
+    redirect_to user_path(current_user)
   end
 
   def destroy
     music = Music.find(params[:id])
     music.destroy
-    redirect_to users_my_page_path
+    redirect_to user_path(current_user)
   end
   
   private
