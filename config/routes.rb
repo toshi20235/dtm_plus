@@ -40,7 +40,7 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
     
-    get 'users/my_page' => 'users#show'                          #顧客のマイページ.
+    # get 'users/my_page' => 'users#show'                          #顧客のマイページ.
     get 'users/information/edit' => 'users#edit'                 #顧客の登録情報編集画面.
     patch 'users/information' => 'users#update'                  #顧客の登録情報更新.
     patch 'users/withdraw' => 'users#withdraw'        #顧客の退会処理(ステータスの更新).

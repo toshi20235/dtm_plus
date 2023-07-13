@@ -30,7 +30,7 @@
                <%= link_to "楽曲一覧", musics_path, class: "nav-link text-light"  %>
               </li>
               <li>
-               <%= link_to "マイページ", users_my_page_path, class: "nav-link text-light"  %>
+               <%= link_to "マイページ", user_path(current_user), class: "nav-link text-light"  %>
               </li>
               <li>
                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-light"  %>

@@ -1,7 +1,7 @@
 
    
      <div class="m-5">
-       <%= link_to users_my_page_path(@music.user.id) do %>
+       <%= link_to user_path(@music.user.id) do %>
          <% if @music.user.image.attached? %>
          <%= image_tag @music.user.image, size: "100x100" %>
           <% else %>
