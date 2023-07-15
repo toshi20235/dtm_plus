@@ -4,7 +4,7 @@
     <h3>新着楽曲</h3>
     <div class="scroll01">
       <% @musics.each do |music| %>
-      <div class="mr-3 bg-light mx-auto d-block">
+      <div class="pr-5 pl-5 bg-light mx-auto d-block">
         <%= link_to music_path(music.id) do %>
         <%= image_tag music.image, size: "150x150", class: "rounded mx-auto d-block" %>
         <% end %>
@@ -17,7 +17,7 @@
     <h3>いいねランキング</h3>
     <div class="scroll01">
       <% @music_favorites.each do |music| %>
-      <div class="mr-3 bg-light mx-auto d-block">
+      <div class="pr-5 pl-5 bg-light mx-auto d-block">
         <%= link_to music_path(music.id) do %>
         <%= image_tag music.image, size: "150x150", class: "rounded mx-auto d-block" %>
         <% end %>

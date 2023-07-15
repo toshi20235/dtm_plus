@@ -53,11 +53,11 @@ ActiveRecord::Schema.define(version: 2023_07_06_045416) do
   end
 
   create_table "albums", force: :cascade do |t|
-    t.integer "post_id", null: false
+    t.integer "music_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_albums_on_post_id"
+    t.index ["music_id"], name: "index_albums_on_music_id"
     t.index ["user_id"], name: "index_albums_on_user_id"
   end
 
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 2023_07_06_045416) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "albums", "posts"
+  add_foreign_key "albums", "musics"
   add_foreign_key "albums", "users"
   add_foreign_key "comments", "musics"
   add_foreign_key "comments", "users"

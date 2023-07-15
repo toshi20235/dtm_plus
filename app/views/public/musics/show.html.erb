@@ -13,11 +13,13 @@
    <div class="container">
      <div class="row">
        <div class="col-4">
+           
          <%= form_with(model:[@music, @comment], method: :post) do |f| %>
          <%= f.text_area :comment_content , class: "form-control text-center" %>
          <%= f.hidden_field :music_id, value: @music.id %>
          <h4 class="pt-3"><%= f.submit"コメントをする", class: "btn btn-success" %></h4>
          <% end %>
+         
          <% if @music.favorited?(current_user) %>
            <%= link_to music_favorites_path(@music.id), method: :delete do %>
            <span style="color:red;">❤︎</span>
@@ -28,6 +30,12 @@
              <span>♡</span>
             <% end %>
             <%= @music.favorites.count %>いいね
+         <% end %>
+         
+         <% if @music.albumed_by?(current_user) %>
+           <td><%= link_to "アルバムに追加", music_album_path(@music), method: :delete %></td>
+         <% else %>
+           <td><%= link_to "アルバムから削除", music_albums_path(@music), method: :post %></td>
          <% end %>
        </div>
       <div class="col-4 text-center">

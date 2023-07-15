@@ -2,7 +2,7 @@
  <div class="container">
     <div class="row mt-5">
      <div class="col-4">
-      <%= link_to albums_path do %>
+      <%= link_to music_albums_path(@user.id) do %>
       <img src="/assets/logo.jpg" width="150" height="150", class="rounded-circle">
       <% end %>
     </div>
