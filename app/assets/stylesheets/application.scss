@@ -32,6 +32,16 @@ body {
 .container .text-muted {
   margin: 20px 0;
 }
+.ver-1 {
+  height: 400px;
+  overflow: auto;
+}
+.scroll01 {
+width: 150px;
+height: 300px;
+white-space: nowrap;
+overflow-x: scroll;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

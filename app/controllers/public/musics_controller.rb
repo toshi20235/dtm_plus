@@ -6,7 +6,7 @@ class Public::MusicsController < ApplicationController
 
   def index
     
-    @musics = Music.all
+    @musics = Music.all.order('id DESC')
     
   end
 
