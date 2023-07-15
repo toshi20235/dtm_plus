@@ -33,9 +33,9 @@
          <% end %>
          
          <% if @music.albumed_by?(current_user) %>
-           <td><%= link_to "アルバムに追加", music_album_path(@music), method: :delete %></td>
+           <td><%= link_to "アルバムから削除", music_album_path(@music), method: :delete %></td>
          <% else %>
-           <td><%= link_to "アルバムから削除", music_albums_path(@music), method: :post %></td>
+           <td><%= link_to "アルバムに追加", music_albums_path(@music), method: :post %></td>
          <% end %>
        </div>
       <div class="col-4 text-center">
