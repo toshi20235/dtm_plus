@@ -3,6 +3,7 @@ class Music < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorit_users, through: :favorites, source: :user
   mount_uploader :audio, AudioUploader
   
   def favorited?(user)

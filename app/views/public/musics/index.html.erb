@@ -1,12 +1,35 @@
 
 <div class="container">
-  <div class="row scroll01">
+  <div class="row test1">
+    <h3>新着楽曲</h3>
+    <div class="scroll01">
       <% @musics.each do |music| %>
-      <%= link_to music_path(music.id) do %>
-      <%= image_tag music.image, size: "200x200", class: "rounded mx-auto d-block" %>
+      <div class="mr-3 bg-light mx-auto d-block">
+        <%= link_to music_path(music.id) do %>
+        <%= image_tag music.image, size: "150x150", class: "rounded mx-auto d-block" %>
+        <% end %>
+        <h3 class="text-center"><strong><%= music.name %></strong></h3>
+      </div>
       <% end %>
-      <h3 class="text-center"><strong><%= music.name %></strong></h3>
+    </div>
+  </div>
+  <div class="row test1">
+    <h3>いいねランキング</h3>
+    <div class="scroll01">
+      <% @music_favorites.each do |music| %>
+      <div class="mr-3 bg-light mx-auto d-block">
+        <%= link_to music_path(music.id) do %>
+        <%= image_tag music.image, size: "150x150", class: "rounded mx-auto d-block" %>
+        <% end %>
+        <h3 class="text-center">
+          <strong><%= music.name %></strong>
+        </h3>
+        <h5 class="text-center">
+        <span style="color:red;">❤︎</span><%= music.favorites.count %>
+        </h5>
+      </div>
       <% end %>
+    </div>
   </div>
 </div>
   

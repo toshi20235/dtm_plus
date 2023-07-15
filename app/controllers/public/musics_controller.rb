@@ -5,9 +5,8 @@ class Public::MusicsController < ApplicationController
   end
 
   def index
-    
     @musics = Music.all.order('id DESC')
-    
+    @music_favorites = Music.includes(:favorit_users).sort {|a,b| b.favorit_users.size <=> a.favorit_users.size}
   end
 
   def show

@@ -37,10 +37,14 @@ body {
   overflow: auto;
 }
 .scroll01 {
-width: 150px;
-height: 300px;
+width: 100%;
+height: 250px;
 white-space: nowrap;
 overflow-x: scroll;
+display: flex;
+}
+.test1 {
+  width: 1000px;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
