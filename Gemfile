@@ -59,7 +59,6 @@ gem 'devise'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'dotenv-rails'
-gem 'dotenv-rails'
 group :production do
  gem 'mysql2'
 end
