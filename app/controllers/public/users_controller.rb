@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    @user = current_user
     @musics = @user.music
   end
 
@@ -8,6 +8,10 @@ class Public::UsersController < ApplicationController
     @user = current_user
   end
 
+  def quit
+    @user = current_user
+  end
+ 
   def update
     @user = current_user
     @user.update(user_params)
