@@ -14,7 +14,7 @@ class Public::UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
-  def withdraw
+  def withdrawal
     @user = current_user
     @user.update(withdrawal: true)
     reset_session
@@ -24,7 +24,7 @@ class Public::UsersController < ApplicationController
    private
   
   def user_params
-    params.require(:user).permit(:user_name, :withdrawal, :image)
+    params.require(:user).permit(:user_name,:email,:image,:withdrawal)
   end
   
 end

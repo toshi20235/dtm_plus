@@ -1,4 +1,5 @@
-# SQLite. Versions 3.8.0 and up are supported.
+
+ # SQLite. Versions 3.8.0 and up are supported.
 #   gem install sqlite3
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
@@ -20,11 +21,7 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-# production:
-#   <<: *default
-#   database: db/production.sqlite3
-  
-  production:
+production:
   <<: *default
   database: <%= ENV['DB_DATABASE'] %>
   adapter: mysql2
