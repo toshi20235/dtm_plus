@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="row">
+  <div class="text-center ver-2">
   <% @albums.each do |album| %>
-  <%= Music.find(album.music_id).user.user_name %>
-  <%= Music.find(album.music_id).name %>
-  <%= image_tag Music.find(album.music_id).image, size: "100x100" %>
+  <h3><strong><%= Music.find(album.music_id).name %></strong></h3></br>
+  <%= image_tag Music.find(album.music_id).image, size: "300x300" %></br>
+  <%= audio_tag Music.find(album.music_id).audio_url, controls: true if Music.find(album.music_id).audio? %>
   <% end %>
  </div>
 </div> 

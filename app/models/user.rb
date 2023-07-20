@@ -35,6 +35,12 @@ def self.guest
     end
 end
 
+def guest?
+    # ゲストユーザーの条件をここに実装
+    # 例：emailが'guest@example.com'の場合をゲストユーザーとする
+    email == 'guest@example.com'
+end
+
 def follow(user_id)
   relationships.create(followed_id: user_id)
 end
