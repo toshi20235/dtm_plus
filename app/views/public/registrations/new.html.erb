@@ -1,33 +1,45 @@
-<h2>新規登録</h2>
-
+<div class="container">
+  <div class="row my-4 ml-5">
+    <h2>新規登録</h2>
+  </div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
   <div class="field">
-    <%= f.label :ユーザーネーム %><br />
-    <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %>
+    <div class="d-flex justify-content-start col-8 mx-auto">
+      <p class="col-4"><%= f.label :ユーザーネーム %></p><br />
+      <p class="col-6"><%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", class: "form-control input-md" %></p>
+    </div>
   </div>
   
   <div class="field">
-    <%= f.label :Eメール %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="d-flex justify-content-start col-8 mx-auto">
+      <p class="col-4"><%= f.label :Eメール %></p><br />
+      <p class="col-6"><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control input-md" %></p>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <div class="d-flex justify-content-start col-8 mx-auto">
+      <p class="col-4">
+        <%= f.label :パスワード %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <% end %></p><br />
+      <p class="col-6"><%= f.password_field :password, autocomplete: "new-password", class: "form-control input-md" %></p>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :パスワード（再入力） %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <div class="d-flex justify-content-start col-8 mx-auto">
+      <p class="col-4"><%= f.label :パスワード（再入力） %></p><br />
+      <p class="col-6"><%= f.password_field :password_confirmation, autocomplete: "new-password" , class: "form-control input-md"%></p>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="d-flex justify-content-start col-8 mx-auto">
+    <p class="col-4"></p>
+    <p class="col-6"><%= f.submit "新規登録",class:"btn btn-success" %></p>
   </div>
 <% end %>
 
-<%= render "public/shared/links" %>
+<%#= render "public/shared/links" %>
