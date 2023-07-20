@@ -1,21 +1,10 @@
-<table>
-  <caption>ブックマーク一覧</caption>
-  <thead>
-    <tr>
-      <th>投稿者名</th>
-      <th>タイトル</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @albums.each do |album| %>
-      <tr>
-        <td><%= Music.find(album.music_id).user.user_name %></td>
-        <td>
-            <%= Music.find(album.music_id).name %>
-        </td>
-        <td><%= image_tag Music.find(album.music_id).image, size: "100x100" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+  <% @albums.each do |album| %>
+  <%= Music.find(album.music_id).user.user_name %>
+  <%= Music.find(album.music_id).name %>
+  <%= image_tag Music.find(album.music_id).image, size: "100x100" %>
+  <% end %>
+ </div>
+</div> 
+
