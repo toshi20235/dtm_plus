@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
   def show
-    @user = current_user
+    @user = User.find(params[:id])
     @musics = @user.music
   end
 
@@ -8,27 +8,24 @@ class Public::UsersController < ApplicationController
     @user = current_user
   end
 
-  def quit
-    @user = current_user
-  end
- 
   def update
     @user = current_user
     @user.update(user_params)
     redirect_to user_path(@user)
   end
 
-  def withdrawal
+  def destroy
     @user = current_user
-    @user.update(withdrawal: true)
+    @user.destroy
     reset_session
     redirect_to root_path
   end
+
   
    private
   
   def user_params
-    params.require(:user).permit(:user_name,:email,:image,:withdrawal)
+    params.permit(:user_name, :email, :image)
   end
   
 end

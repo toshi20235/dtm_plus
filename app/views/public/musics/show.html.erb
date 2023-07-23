@@ -2,7 +2,7 @@
    <div class="container">
      <div class="row">
        <div class="col-4 mt-5">
-         <%= link_to user_path(@music.user.id) do %>
+         <%= link_to user_path(@music.user) do %>
            <% if @music.user.image.attached? %>
            <%= image_tag @music.user.image, size: "100x100" %>
             <% else %>
