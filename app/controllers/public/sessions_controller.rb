@@ -1,20 +1,21 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
-     def after_sign_in_path_for(resource)
+    
+    def after_sign_in_path_for(resource)
          user_path(current_user)
-     end
+    end
      
-     def after_sign_out_path_for(resource)
+    def after_sign_out_path_for(resource)
         root_path
-     end
+    end
      
-     def new_guest
+    def new_guest
         user = User.guest
         sign_in user
         redirect_to musics_path, notice: 'ゲストユーザーとしてログインしました。'
-     end
-  # before_action :configure_sign_in_params, only: [:create]
+    end
+    
 
   # GET /resource/sign_in
   # def new

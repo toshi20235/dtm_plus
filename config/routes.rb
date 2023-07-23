@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     
     resources :musics, only: [:new, :index,:show,:create,:destroy] do
       resources :albums, only: [:index, :create, :destroy]
-      resources :comments, only: [:create]  #commentsコントローラへのルーティング
+      resources :comments, only: [:create, :destroy]  #commentsコントローラへのルーティング
       resource :favorites, only: [:create, :destroy]
     end
      

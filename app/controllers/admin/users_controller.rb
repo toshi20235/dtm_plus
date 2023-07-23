@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @comments = @user.comments 
+    @comments = @user.comments
   end
     
   def edit
@@ -14,9 +14,16 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_path
   end
   
+  def destroy
+   user = User.find(params[:id])
+   comment = user.comment_content
+   comment.destroy
+   redirect_to admin_user(user.id)
+  end
+  
   private
   
   def user_params
-     params.require(:user).permit(:user_name, :withdrawal)
+     params.require(:user).permit(:user_name)
   end
 end
