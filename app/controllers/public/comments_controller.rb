@@ -7,6 +7,13 @@ class Public::CommentsController < ApplicationController
       redirect_back(fallback_location: root_path) 
     end
   end
+  
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
+    user = User.find(comment.user.id)
+    redirect_to admin_user_path(user.id)
+  end
 
   private
   def comment_params

@@ -36,9 +36,7 @@ def self.guest
 end
 
 def guest?
-    # ゲストユーザーの条件をここに実装
-    # 例：emailが'guest@example.com'の場合をゲストユーザーとする
-    email == 'guest@example.com'
+    email ==  'guest@example.com'
 end
 
 def follow(user_id)
