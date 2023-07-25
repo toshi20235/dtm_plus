@@ -5,16 +5,31 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
+    user = User.find(params[:id])
+    unless user.id == current_user.id
+      redirect_to root_path
+    end
+    
     @user = current_user
   end
 
   def update
+    user = User.find(params[:id])
+    unless user.id == current_user.id
+      redirect_to root_path
+    end
+    
     @user = current_user
     @user.update(user_params)
     redirect_to user_path(@user)
   end
 
   def destroy
+    user = User.find(params[:id])
+    unless user.id == current_user.id
+      redirect_to root_path
+    end
+    
     @user = current_user
     @user.destroy
     reset_session
@@ -25,7 +40,7 @@ class Public::UsersController < ApplicationController
    private
   
   def user_params
-    params.permit(:user_name, :email, :image)
+    params.require(:user).permit(:user_name, :email, :image)
   end
   
 end
