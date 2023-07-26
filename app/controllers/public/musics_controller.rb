@@ -29,6 +29,12 @@ class Public::MusicsController < ApplicationController
     redirect_to user_path(current_user)
   end
   
+  def search
+  @musics = Music.search(params[:keyword])
+  @keyword = params[:keyword]
+  render "index_search"
+  end
+  
   private
   
   def music_params

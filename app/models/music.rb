@@ -17,4 +17,8 @@ class Music < ApplicationRecord
     albums.where(user_id: user).exists?
   end
   
+  def self.search(keyword)
+   where(["name like?","%#{keyword}%"])
+  end
+  
 end
