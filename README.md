@@ -25,5 +25,3 @@
 - IDE：Cloud9
 ​
 
-ls -l ~/.ssh/practice-aws01.pem
-scp -i ~/.ssh/practice-aws01.pem ~/.ssh/id_rsa.pub ec2-user@18.179.17.26:.ssh/id_rsa.pub
