@@ -24,5 +24,3 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 ​
-
-11111111
