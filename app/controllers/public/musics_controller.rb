@@ -1,7 +1,7 @@
 class Public::MusicsController < ApplicationController
   
   def new
-    @music = Music.new
+     @music = Music.new
   end
 
   def index
@@ -17,10 +17,14 @@ class Public::MusicsController < ApplicationController
   
 
   def create
-    music = Music.new(music_params)
-    music.user_id = current_user.id
-    music.save
-    redirect_to user_path(current_user)
+    @music = Music.new(music_params)
+    @music.user_id = current_user.id
+    if @music.save
+       redirect_to user_path(current_user)
+    else
+    flash.now[:alert] = @music.errors.full_messages.join(", ")
+    render :new
+    end
   end
 
   def destroy

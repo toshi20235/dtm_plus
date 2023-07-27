@@ -1,5 +1,13 @@
 <div class="container">
-      
+   <% if @music.errors.any? %>
+      <div>
+        <ul style="color: red">
+          <% @music.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+   <% end %>
         <%= form_with model: Music.new do |f| %>
         　<div class="text-center m-4">
             <%= f.label :音源をアップロード %><br /><br />
