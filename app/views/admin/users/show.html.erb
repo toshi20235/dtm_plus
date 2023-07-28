@@ -6,7 +6,7 @@
      <div class="text-center">
        <% @comments.each do |comment| %>
        <div class="alert alert-info" role="alert">
-         <%= comment.comment_content %>
+        <p class="text-break"><%= comment.comment_content %></p>
          <%= link_to "管理者用削除", music_comment_path(id: comment.id, music_id: comment.music_id), method: :delete , class: "btn btn-outline-danger"%>
        </div>
        <% end %>
