@@ -3,7 +3,7 @@
  <div class="text-center m-4">
   <% @users.each do |user| %>
     <% if user.image.attached? %>
-     <%= image_tag user.image, size: "100x100" %>
+     <%= image_tag user.image, size: "100x100", class: "rounded mx-auto mb-2" %>
     <% else %>
      <%= image_tag 'logo2.jpg', size: "100x100", class: "rounded mx-auto mb-2" %>
     <% end %>
