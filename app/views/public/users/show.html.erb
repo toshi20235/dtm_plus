@@ -3,7 +3,7 @@
     <div class="row mt-5">
      <div class="col-4">
       <%= link_to music_albums_path(@user.id) do %>
-      <img src="/assets/logo.jpg" width="150" height="150", class="rounded-circle">
+      <%= image_tag "logo.jpg", size: "150x150", class: "rounded-circle" %>
       <% end %>
     </div>
       <div class="col-4">
