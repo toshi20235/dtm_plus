@@ -5,7 +5,7 @@
     <% if user.image.attached? %>
      <%= image_tag user.image, size: "100x100" %>
     <% else %>
-     <%= image_tag 'logo2', size: "100x100", class: "rounded mx-auto mb-2" %>
+     <%= image_tag 'logo2.jpg', size: "100x100", class: "rounded mx-auto mb-2" %>
     <% end %>
       <h5>ユーザー名</h6>
       <%= user.user_name %>
