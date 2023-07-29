@@ -5,7 +5,7 @@
            <% if @music.user.image.attached? %>
            <%= image_tag @music.user.image, size: "100x100", class: "rounded-circle" %>
             <% else %>
-             <%= image_tag 'logo2', size: "100x100", class: "rounded-circle" %>
+             <%= image_tag 'logo2.jpg', size: "100x100", class: "rounded-circle" %>
             <% end %>
           <% end %>
          <div><%= @music.user.user_name %></div>
