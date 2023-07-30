@@ -1,7 +1,7 @@
 <% if @users.exists? %>
+<% @users.each do |user| %>
 <div class="container">
  <div class="text-center m-4">
-  <% @users.each do |user| %>
     <% if user.image.attached? %>
      <%= image_tag user.image, size: "100x100", class: "rounded mx-auto mb-2" %>
     <% else %>
@@ -9,9 +9,9 @@
     <% end %>
       <h5>ユーザー名</h6>
       <%= user.user_name %>
-  <% end %>
  </div>
 </div>
+<% end %>
 <% else %>
   <p>ユーザーはいません</p>
 <% end %>
