@@ -15,7 +15,9 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorit_posts, through: :favorites, source: :music
   has_many :albums, dependent: :destroy
-
+  
+  
+  
 def follow(user_id)
   relationships.create(followed_id: user_id)
 end
